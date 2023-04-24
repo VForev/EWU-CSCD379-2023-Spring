@@ -1,3 +1,5 @@
+Azure Link: https://white-flower-0e3bf9b1e.3.azurestaticapps.net
+
 # wordle-web
 
 This template should help get you started developing with Vue 3 in Vite.
