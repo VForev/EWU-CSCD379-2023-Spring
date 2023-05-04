@@ -23,8 +23,10 @@ import { WordsService } from '@/scripts/wordsService'
 
 const game = reactive(new WordleGame())
 
-onMounted(() => {
+onMounted(async () => {
   window.addEventListener('keyup', keyPress)
+  await game.restartGame()
+  console.log(game.secretWord)
 })
 
 onUnmounted(() => {
