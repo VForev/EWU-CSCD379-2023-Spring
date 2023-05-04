@@ -47,7 +47,8 @@ Axios.get('https://localhost:7053/WeatherForecast')
     align-items: center;
   }
 }
-</style> -->
+</style>
+-->
 
 <!-- ----------------------------the script has broken code but needed for inclass stuff --------KEEP-------------------- -->
 
