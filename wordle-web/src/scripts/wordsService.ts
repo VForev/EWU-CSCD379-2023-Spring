@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import { Word } from './word'
 
 export abstract class WordsService {
   static getRandomWord(): string {
