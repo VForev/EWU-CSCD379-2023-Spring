@@ -25,9 +25,13 @@ export class WordleGame {
   set currentGuess(word: Word) {
     this.guesses[this.currentGuessIndex] = word
   }
+//----------------------------this line game checnger ------------------------
+  restartGame(secretWord?: string | null, numberOfGuesses: number = 6) {
+    this.secretWord = secretWord || WordsService.getRandomWord()
 
-  async restartGame(secretWord?: string | null, numberOfGuesses: number = 6) {
-    this.secretWord = secretWord || (await WordsService.getWordFromApi())
+  // async restartGame(secretWord?: string | null, numberOfGuesses: number = 6) {
+  //   this.secretWord = secretWord || (await WordsService.getWordFromApi())
+
     this.guesses.splice(0)
     for (let i = 0; i < numberOfGuesses; i++) {
       const word = new Word()
