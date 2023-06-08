@@ -1,4 +1,4 @@
-import { createApp, provide, reactive } from 'vue'
+import { createApp, reactive } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { mdi } from 'vuetify/iconsets/mdi'
@@ -58,8 +58,11 @@ const vuetify = createVuetify({
 })
 
 const app = createApp(App)
+
+// Create basic services
 const signInService = reactive(SignInService.instance)
 app.provide(Services.SignInService, signInService)
+
 const playerService = new PlayerService()
 playerService.setupPlayerAsync()
 app.provide(Services.PlayerService, playerService)

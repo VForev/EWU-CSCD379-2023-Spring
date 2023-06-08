@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using Wordle.Api.Data;
 using Wordle.Api.Identity;
 using Wordle.Api.Models;
@@ -73,7 +76,7 @@ public class TokenController : Controller
     }
 
     [HttpPost("CreateUser")]
-    public async Task<IActionResult> CreateUser([FromBody]CreateUser createUser)
+    public async Task<IActionResult> CreateUser([FromBody] CreateUser createUser)
     {
         if (string.IsNullOrEmpty(createUser.Username))
         {
@@ -109,27 +112,24 @@ public class TokenController : Controller
     }
 
     [HttpGet("testadmin")]
-    [Authorize(Roles=Roles.Admin)]
+    [Authorize(Roles = Roles.Admin)]
     public string TestAdmin()
     {
         return "Authorized as Admin";
     }
 
-    [HttpGet("testruleroftheuniverse")]
-    [Authorize(Roles="RulerOfTheUniverse,Meg")]
-    public string TestRulerOfTheUniverseOrMeg()
+    [HttpGet("testmasteroftheuniverse")]
+    [Authorize(Roles = "MasterOfTheUniverse")]
+    public string TestMasterOfTheUniverse()
     {
-        return "Authorized as Ruler of the Universe or Meg";
+        return "Authorized as Master of the Universe";
     }
 
     [HttpGet("testrandomadmin")]
-    [Authorize(Policy=Policies.RandomAdmin)]
+    [Authorize(Policy = Policies.RandomAdmin)]
     public string TestRandomAdmin()
     {
         return $"Authorized randomly as Random Admin with {User.Claims.First(c => c.Type == Claims.Random).Value}";
     }
 
 }
-
-
-
