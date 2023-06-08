@@ -10,4 +10,3 @@
         public DateTime? WordOfTheDayDate { get; set; }
     }
 }
-aaa
