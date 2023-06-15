@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeViewVue from '@/views/HomeView.vue'
-import NoteEditorVue from '@/components/NoteEditor.vue'
-import DeletedNotesView from '@/views/DeletedNotesView.vue'
+import HomeViewVue from '../views/HomeView.vue'
+import NoteEditorVue from '../components/NoteEditor.vue'
+import SearchNotesView from '../views/SearchNotesView.vue'
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -18,9 +18,9 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/deleted-notes',
-      name: 'DeletedNotes',
-      component: DeletedNotesView
+      path: '/SearchNotesView',
+      name: 'SearchNotesView',
+      component: SearchNotesView
     }
   ]
 })
