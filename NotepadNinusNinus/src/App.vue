@@ -1,10 +1,9 @@
 <template>
   <v-app>
-    <span class="bg"></span>
     <v-app-bar :elevation="3">
       <template v-slot>
         <v-app-bar-title style="flex: auto">
-          <RouterLink to="/"> NotepadMinusMinus </RouterLink>
+          <RouterLink to="/"> Noted </RouterLink>
         </v-app-bar-title>
         <v-spacer />
 
@@ -21,7 +20,7 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-title>
-                <RouterLink :to="{ name: 'SearchNotesView' }"> Search Notes </RouterLink>
+                <RouterLink :to="{ name: 'DeletedNotes' }"> Deleted Notes </RouterLink>
               </v-list-item-title>
             </v-list-item>
           </v-list>
