@@ -28,11 +28,11 @@ namespace Noted.Api.Controllers
             return _noteService.GetNoteById(id);
         }
 
-        [HttpGet("GetDeletedNotes")]
-        public IEnumerable<Note> GetDeletedNotes(Guid id)
-        {
-            return _noteService.GetDeletedNotes();
-        }
+        //[HttpGet("GetDeletedNotes")]
+        //public IEnumerable<Note> GetDeletedNotes(Guid id)
+        //{
+        //    return _noteService.GetDeletedNotes();
+        //}
 
         [HttpPost("Add")]
         public void AddNote([FromBody] NoteDto note)
@@ -52,10 +52,10 @@ namespace Noted.Api.Controllers
             _noteService.DeleteNote(id);
         }
 
-        [HttpPut("RestoreNote")]
-        public void RestoreNote(Guid id)
-        {
-            _noteService.RestoreNote(id);
-        }
+        //[HttpPut("RestoreNote")]
+        //public void RestoreNote(Guid id)
+        //{
+        //    _noteService.RestoreNote(id);
+        //}
     }
 }

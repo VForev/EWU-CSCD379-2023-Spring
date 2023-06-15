@@ -36,7 +36,7 @@ namespace Noted.Api.Services
             
             if(note.Title == "")
             {
-                note.Title = "Untitled Note";
+                note.Title = "Empty Note";
             }
             newNote.Title = note.Title;
             newNote.Content = note.Content;
@@ -61,7 +61,7 @@ namespace Noted.Api.Services
 
             if (storedNote == null)
             {
-                throw new Exception("Id not found");
+                throw new Exception("Not found");
             }
 
             storedNote.Title = note.Title;
@@ -77,7 +77,7 @@ namespace Noted.Api.Services
 
             if (storedNote == null)
             {
-                throw new Exception("Id not found");
+                throw new Exception("Not found");
             }
 
             storedNote.deleted = true;
@@ -86,18 +86,18 @@ namespace Noted.Api.Services
             _db.SaveChanges();
         }
 
-        public void RestoreNote(Guid id)
-        {
-            var noteToRestore = _db.Notes.Where(n => n.Id == id).First();
+        //public void RestoreNote(Guid id)
+        //{
+        //    var noteToRestore = _db.Notes.Where(n => n.Id == id).First();
 
-            if (noteToRestore == null)
-            {
-                throw new Exception("Id not found");
-            }
+        //    if (noteToRestore == null)
+        //    {
+        //        throw new Exception("Not found");
+        //    }
 
-            noteToRestore.deleted = false;
+        //    noteToRestore.deleted = false;
 
-            _db.SaveChanges();
-        }
+        //    _db.SaveChanges();
+        //}
     }
 }
