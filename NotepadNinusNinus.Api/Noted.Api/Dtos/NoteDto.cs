@@ -8,6 +8,5 @@
         public bool deleted { get; set; }
 
         public DateTime? DeletedDate { get; set; }
-
     }
 }

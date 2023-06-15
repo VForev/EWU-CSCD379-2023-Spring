@@ -11,8 +11,8 @@ namespace Noted.Api.Services
         {
             _db = db;
         }
-      // fsd
-        public IEnumerable<Note> GetNotes() 
+
+        public IEnumerable<Note> GetNotes()
         {
             return _db.Notes.Where(note => note.deleted == false).ToList();
         }
@@ -28,22 +28,22 @@ namespace Noted.Api.Services
         }
         public void AddNote(NoteDto note)
         {
-            if(note == null)
+            if (note == null)
             {
                 throw new ArgumentNullException(nameof(note));
             }
             var newNote = new Note();
-            
-            if(note.Title == "")
+
+            if (note.Title == "")
             {
-                note.Title = "Empty Note";
+                note.Title = "Untitled Note";
             }
             newNote.Title = note.Title;
             newNote.Content = note.Content;
             newNote.deleted = false;
-            
+
             _db.Notes.Add(newNote);
-            _db.SaveChanges();   
+            _db.SaveChanges();
         }
 
         public void UpdateNote(NoteDto note)
@@ -61,12 +61,12 @@ namespace Noted.Api.Services
 
             if (storedNote == null)
             {
-                throw new Exception("Not found");
+                throw new Exception("Id not found");
             }
 
             storedNote.Title = note.Title;
             storedNote.Content = note.Content;
-            
+
             _db.SaveChanges();
         }
 
@@ -77,7 +77,7 @@ namespace Noted.Api.Services
 
             if (storedNote == null)
             {
-                throw new Exception("Not found");
+                throw new Exception("Id not found");
             }
 
             storedNote.deleted = true;
@@ -92,7 +92,7 @@ namespace Noted.Api.Services
 
         //    if (noteToRestore == null)
         //    {
-        //        throw new Exception("Not found");
+        //        throw new Exception("Id not found");
         //    }
 
         //    noteToRestore.deleted = false;
