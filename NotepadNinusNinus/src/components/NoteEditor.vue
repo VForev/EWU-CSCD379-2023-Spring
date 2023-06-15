@@ -3,7 +3,6 @@
     ><v-row justify="center">
       <v-col cols="12" style="display: flex; justify-content: center">
         <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap">
-          <h1 class="text-h1">NotepadMinusMinus</h1>
         </div>
       </v-col>
       <v-col cols="12" style="display: flex; justify-content: center">
@@ -12,7 +11,7 @@
             padding: 10px;
             display: flex;
             flex-direction: row;
-            height: 800px;
+            height: 350px;
             width: fit-content;
           "
         >
@@ -21,7 +20,7 @@
               :model-value="currentNote?.title"
               @input="editNoteTitle($event.target.value)"
               variant="underlined"
-              placeholder="insert title..."
+              placeholder="Title..."
               :error-messages="emptyTitleError ? 'Note must contain title' : ''"
             ></v-text-field>
             <v-textarea
@@ -29,6 +28,7 @@
               @input="editNoteContent($event.target.value)"
               variant="outlined"
               style="display: flex; flex-direction: column; flex-grow: 1; width: 500px"
+              placeholder="Enter text here..."
             ></v-textarea>
 
             <div style="display: flex; justify-content: right; gap: 10px">
