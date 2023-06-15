@@ -4,25 +4,27 @@
       ><v-card-title style="display: flex; justify-content: space-between"
         ><div>Notes:</div>
         <div style="display: flex; gap: 10">
-          <v-btn to="/note-editor">Create Note</v-btn>
-        </div></v-card-title
+          <v-text-field
+            style="width: 200px"
+            density="compact"
+            label="search note..."
+            append-inner-icon="mdi-magnify"
+            single-line
+            hide-details
+            @input="SetSearchParams($event.target.value)"
+          ></v-text-field></div></v-card-title
       ><v-list v-for="note in notes.filter((e) => e.title.startsWith(searchParams))" :key="note.id"
         ><v-list-item rounded="xl" class="mx-auto" :to="'/note-editor/' + note.id">
           <div style="display: flex; justify-content: space-between; align-items: center">
             {{ note.title }}
             <div style="display: flex; align-items: center; gap: 20px">
               <div>Date Created: {{ note.created.split('T', 1).toString() }}</div>
-
-              <v-hover>
-                <v-tooltip text="Delete">
-                  <template v-slot:activator="{ props }">
-                    <v-icon v-bind="props" icon="mdi-delete" @click="deleteNote($event, note.id)" />
-                  </template>
-                </v-tooltip>
-              </v-hover>
             </div>
-          </div> </v-list-item></v-list></v-card
-  ></v-container>
+          </div>
+        </v-list-item></v-list
+      ></v-card
+    ></v-container
+  >
 </template>
 
 <script setup lang="ts">

@@ -3,7 +3,7 @@
     ><v-row justify="center">
       <v-col cols="12" style="display: flex; justify-content: center">
         <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap">
-          <h1 class="text-h1">Noted</h1>
+          <h1 class="text-h1">NotepadMinusMinus</h1>
         </div>
       </v-col>
       <v-col cols="12" style="display: flex; justify-content: center">
