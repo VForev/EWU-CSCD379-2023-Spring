@@ -4,6 +4,16 @@
       ><v-card-title style="display: flex; justify-content: space-between"
         ><div>Notes:</div>
         <div style="display: flex; gap: 10">
+          <v-text-field
+            style="width: 200px"
+            density="compact"
+            variant="solo"
+            label="search note..."
+            append-inner-icon="mdi-magnify"
+            single-line
+            hide-details
+            @input="SetSearchParams($event.target.value)"
+          ></v-text-field>
           <v-btn to="/note-editor">Create Note</v-btn>
         </div></v-card-title
       ><v-list v-for="note in notes.filter((e) => e.title.startsWith(searchParams))" :key="note.id"

@@ -13,8 +13,7 @@
             single-line
             hide-details
             @input="SetSearchParams($event.target.value)"
-          ></v-text-field
-          ><v-btn to="/note-editor">Create Note</v-btn>
+          ></v-text-field>
         </div></v-card-title
       ><v-list v-for="note in notes.filter((e) => e.title.startsWith(searchParams))" :key="note.id"
         ><v-list-item rounded="xl" class="mx-auto" @click="void 0">
