@@ -4,7 +4,7 @@ import NoteEditorVue from '@/components/NoteEditor.vue'
 import DeletedNotesView from '@/views/DeletedNotesView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes: [
     {
       path: '/',
